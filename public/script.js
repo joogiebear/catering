@@ -28,33 +28,37 @@ function setMenu(open) {
   toggle.setAttribute("aria-expanded", String(open));
   toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   overlay.setAttribute("aria-hidden", String(!open));
+  overlay.inert = !open;
+  if (open) overlay.querySelector("a").focus();
 }
 toggle.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
 overlay.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+document.addEventListener("keydown", (e) => {
+  if (!document.body.classList.contains("menu-open")) return;
+  if (e.key === "Escape") {
+    setMenu(false);
+    toggle.focus();
+  }
+  if (e.key === "Tab") {
+    const links = [...overlay.querySelectorAll("a")];
+    const first = links[0];
+    const last = links[links.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+});
 
-// ---------- Scroll reveals, line drawings, counters ----------
-function countUp(el) {
-  const target = Number(el.dataset.count);
-  const suffix = el.dataset.suffix || "";
-  if (reduceMotion) { el.textContent = target + suffix; return; }
-  const start = performance.now();
-  const duration = 1800;
-  const tick = (now) => {
-    const t = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - t, 4);
-    el.textContent = Math.round(target * eased) + suffix;
-    if (t < 1) requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-}
-
+// ---------- Scroll reveals ----------
 const io = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
     const el = entry.target;
     el.classList.add("in", "is-drawn");
-    el.querySelectorAll("[data-count]").forEach(countUp);
     io.unobserve(el);
   });
 }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
@@ -64,7 +68,7 @@ document.querySelectorAll(".reveal, .steps").forEach((el) => io.observe(el));
 // ---------- Statement: words light up as you scroll ----------
 const statement = document.querySelector("[data-words]");
 if (statement) {
-  const highlight = new Set(["table.", "scratch,", "love,", "guest"]);
+  const highlight = new Set(["table", "story,", "toast,", "longer."]);
   statement.innerHTML = statement.textContent.trim().split(/\s+/)
     .map((w) => `<span class="w${highlight.has(w) ? " hl" : ""}">${w}</span>`)
     .join(" ");
@@ -112,8 +116,9 @@ tabs.forEach((tab, i) => {
   tab.addEventListener("click", () => selectTab(tab));
   tab.addEventListener("keydown", (e) => {
     const dir = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-    if (!dir) return;
-    const next = tabs[(i + dir + tabs.length) % tabs.length];
+    if (!dir && e.key !== "Home" && e.key !== "End") return;
+    e.preventDefault();
+    const next = e.key === "Home" ? tabs[0] : e.key === "End" ? tabs[tabs.length - 1] : tabs[(i + dir + tabs.length) % tabs.length];
     next.focus();
     selectTab(next);
   });
