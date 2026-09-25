@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Hearth &amp; Table — Gather Beautifully</title>
+  <meta name="description" content="An elegant catering concept for weddings, corporate events, private dinners, and celebrations worth remembering.">
+  <meta name="theme-color" content="#15231c">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <div class="preview-note">Concept site</div>
+  <!-- Opening curtain -->
+  <div class="curtain" aria-hidden="true">
+    <div class="curtain-mark">
+      <span class="monogram">H<em>&amp;</em>T</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a href="#top" class="brand" aria-label="Hearth and Table, home">
+        <span class="monogram">H<em>&amp;</em>T</span>
+        <span class="brand-name">Hearth &amp; Table</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="#occasions">Occasions</a>
+        <a href="#menu">Menu</a>
+        <a href="#story">Experience</a>
+      </nav>
+      <a href="#reserve" class="nav-cta">Let's Gather</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="overlay-menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="overlay-menu" id="overlay-menu" aria-hidden="true" inert>
+    <nav class="overlay-links" aria-label="Mobile">
+      <a href="#occasions"><small>II</small>Occasions</a>
+      <a href="#menu"><small>III</small>The Menu</a>
+      <a href="#story"><small>IV</small>The Experience</a>
+      <a href="#reserve"><small>V</small>Let's Gather</a>
+    </nav>
+    <p class="overlay-contact">Good food. Good company. Beautiful memories.</p>
+  </div>
+
+  <main id="top">
+    <!-- I. Hero -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker hero-in" style="--i:0"><span class="rule"></span>Catering &amp; Events</p>
+          <h1 class="hero-title">
+            <span class="line"><span>Every table</span></span>
+            <span class="line"><span>tells a <em>story.</em></span></span>
+          </h1>
+          <p class="hero-lead hero-in" style="--i:3">For the vows, the milestones, the moments in between. Food that makes every gathering feel like its own.</p>
+          <div class="hero-actions hero-in" style="--i:4">
+            <a href="#occasions" class="btn btn-brass"><span>Explore occasions</span></a>
+            <a href="#menu" class="link-arrow">View the menu <i aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <img class="hero-photo" src="/images/hero-table.webp" alt="An elegant candlelit table set for a gathering" fetchpriority="high">
+          <p class="hero-caption">Gather well &nbsp;·&nbsp; <em>linger longer</em></p>
+        </div>
+      </div>
+
+      <a href="#welcome" class="scroll-cue" aria-label="Scroll to content"><span>Scroll</span><i></i></a>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Weddings</span><b>✦</b><span>Rehearsal Dinners</span><b>✦</b><span>Galas</span><b>✦</b><span>Garden Parties</span><b>✦</b><span>Corporate Lunches</span><b>✦</b><span>Birthdays</span><b>✦</b><span>Holiday Feasts</span><b>✦</b><span>Private Dinners</span><b>✦</b>
+        <span>Weddings</span><b>✦</b><span>Rehearsal Dinners</span><b>✦</b><span>Galas</span><b>✦</b><span>Garden Parties</span><b>✦</b><span>Corporate Lunches</span><b>✦</b><span>Birthdays</span><b>✦</b><span>Holiday Feasts</span><b>✦</b><span>Private Dinners</span><b>✦</b>
+      </div>
+    </div>
+
+    <!-- Welcome / philosophy -->
+    <section id="welcome" class="section welcome">
+      <div class="wrap narrow">
+        <p class="course reveal"><span>I</span>The Welcome</p>
+        <p class="statement" data-words>There is always room at the table for one more story, one more toast, and one more reason to stay a little longer.</p>
+      </div>
+    </section>
+
+    <!-- II. Occasions -->
+    <section id="occasions" class="section occasions">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="course reveal"><span>II</span>The Occasions</p>
+          <h2 class="reveal">Whatever you're <em>celebrating</em></h2>
+        </div>
+        <ol class="occasion-list">
+          <li class="reveal">
+            <a href="#reserve" class="occasion" data-type="Wedding">
+              <span class="occ-num">01</span>
+              <span class="occ-title">Weddings</span>
+              <span class="occ-text">A first toast, a candlelit dinner, one last dance. A celebration shaped around the two of you.</span>
+              <span class="occ-arrow" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="#reserve" class="occasion" data-type="Celebration">
+              <span class="occ-num">02</span>
+              <span class="occ-title">Celebrations</span>
+              <span class="occ-text">Birthdays, showers, holidays, and every occasion that calls for everyone around one table.</span>
+              <span class="occ-arrow" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="#reserve" class="occasion" data-type="Corporate">
+              <span class="occ-num">03</span>
+              <span class="occ-title">Corporate</span>
+              <span class="occ-text">Working lunches, launches, and evenings that bring colleagues together beyond the meeting room.</span>
+              <span class="occ-arrow" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="#reserve" class="occasion" data-type="Private dinner">
+              <span class="occ-num">04</span>
+              <span class="occ-title">Private Dining</span>
+              <span class="occ-text">An intimate evening with your favorite people, where the conversation is as memorable as the meal.</span>
+              <span class="occ-arrow" aria-hidden="true"></span>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- III. Menu -->
+    <section id="menu" class="section menu-section">
+      <div class="wrap">
+        <div class="section-head center">
+          <p class="course reveal"><span>III</span>The Menu</p>
+          <h2 class="reveal">A taste of the <em>season</em></h2>
+          <p class="section-sub reveal">A little inspiration for the kind of table we could set.</p>
+        </div>
+
+        <div class="menu-card reveal">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+
+          <div class="menu-tabs" role="tablist" aria-label="Menu courses">
+            <button class="menu-tab active" role="tab" aria-selected="true" aria-controls="m-canapes" id="t-canapes">Canapés</button>
+            <button class="menu-tab" role="tab" aria-selected="false" aria-controls="m-mains" id="t-mains">Mains</button>
+            <button class="menu-tab" role="tab" aria-selected="false" aria-controls="m-sides" id="t-sides">Sides</button>
+            <button class="menu-tab" role="tab" aria-selected="false" aria-controls="m-sweets" id="t-sweets">Sweets</button>
+            <span class="tab-indicator" aria-hidden="true"></span>
+          </div>
+
+          <div class="menu-panels">
+            <div class="menu-panel active" id="m-canapes" role="tabpanel" aria-labelledby="t-canapes">
+              <div class="dish"><h3>Whipped Feta Crostini</h3><span class="diet">v</span><p>wildflower honey, cracked pepper, grilled sourdough</p></div>
+              <div class="dish"><h3>Heirloom Caprese Skewers</h3><span class="diet">v · gf</span><p>buffalo mozzarella, basil, aged balsamic</p></div>
+              <div class="dish"><h3>Crispy Pork Belly</h3><span class="diet">gf</span><p>sticky chilli glaze, pickled cucumber</p></div>
+              <div class="dish"><h3>Chilled Soup Shooters</h3><span class="diet">vg</span><p>the garden's best, this week</p></div>
+            </div>
+            <div class="menu-panel" id="m-mains" role="tabpanel" aria-labelledby="t-mains" hidden>
+              <div class="dish"><h3>Herb-Roasted Chicken</h3><span class="diet">gf</span><p>lemon, garlic, thyme pan jus</p></div>
+              <div class="dish"><h3>Braised Short Rib</h3><span class="diet">gf</span><p>red wine reduction, crispy shallots</p></div>
+              <div class="dish"><h3>Blackened Salmon</h3><span class="diet">gf</span><p>mango salsa, lime crème fraîche</p></div>
+              <div class="dish"><h3>Wild Mushroom Risotto</h3><span class="diet">v · gf</span><p>parmesan, truffle, soft herbs</p></div>
+            </div>
+            <div class="menu-panel" id="m-sides" role="tabpanel" aria-labelledby="t-sides" hidden>
+              <div class="dish"><h3>Crushed Garlic Potatoes</h3><span class="diet">v · gf</span><p>parmesan, rosemary salt</p></div>
+              <div class="dish"><h3>Charred Seasonal Greens</h3><span class="diet">vg · gf</span><p>olive oil, lemon, toasted almonds</p></div>
+              <div class="dish"><h3>Three-Cheese Macaroni</h3><span class="diet">v</span><p>golden breadcrumb crust</p></div>
+              <div class="dish"><h3>Orchard Salad</h3><span class="diet">vg · gf</span><p>crisp apple, candied pecans, cider vinaigrette</p></div>
+            </div>
+            <div class="menu-panel" id="m-sweets" role="tabpanel" aria-labelledby="t-sweets" hidden>
+              <div class="dish"><h3>Petite Cheesecakes</h3><span class="diet">v</span><p>seasonal fruit compote</p></div>
+              <div class="dish"><h3>Dark Chocolate Pots</h3><span class="diet">v · gf</span><p>whipped cream, flaked sea salt</p></div>
+              <div class="dish"><h3>Lemon Shortbread Bars</h3><span class="diet">v</span><p>a dusting of sugar</p></div>
+              <div class="dish"><h3>Fruit of the Season</h3><span class="diet">vg · gf</span><p>whatever the market loves most</p></div>
+            </div>
+          </div>
+
+          <p class="menu-foot"><span>v</span> vegetarian &nbsp; <span>vg</span> vegan &nbsp; <span>gf</span> gluten-free &nbsp;·&nbsp; <em>illustrative menu and dietary labels</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- IV. Story -->
+    <section id="story" class="section story">
+      <div class="wrap story-grid">
+        <div class="arch reveal">
+          <img class="story-photo" src="/images/story-table.webp" alt="An artfully plated dish on a warmly lit table" loading="lazy">
+        </div>
+        <div class="story-copy">
+          <p class="course reveal"><span>IV</span>The Experience</p>
+          <h2 class="reveal">Made for <em>being together</em></h2>
+          <p class="reveal">The sound of glasses meeting. Plates passed across the table. A room full of people who are happy to be exactly where they are.</p>
+          <p class="reveal">The most memorable menus leave space for all of it.</p>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <ol class="steps">
+          <li class="step reveal" style="--i:0"><span class="step-n">i.</span><h3>Imagine</h3><p>Picture the people, the place, and the feeling you want to create.</p></li>
+          <li class="step reveal" style="--i:1"><span class="step-n">ii.</span><h3>Make it yours</h3><p>Find the flavors and details that fit the occasion.</p></li>
+          <li class="step reveal" style="--i:2"><span class="step-n">iii.</span><h3>Gather</h3><p>Come together, raise a glass, and enjoy the moment.</p></li>
+          <li class="steps-line" aria-hidden="true"></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Gathering invitation -->
+    <section id="reserve" class="section reserve">
+      <div class="wrap reserve-grid">
+        <div class="reserve-intro">
+          <p class="course light reveal"><span>V</span>The Invitation</p>
+          <h2 class="reveal">Let's plan <em>something lovely</em></h2>
+          <p class="reveal">A celebration begins long before the first guest arrives. Tell us about the occasion, and we can imagine a menu and experience around it.</p>
+          <p class="reveal">For a real event, this is where you could ask about availability, menu options, and a tailored price.</p>
+        </div>
+
+        <div class="rsvp reveal">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <p class="rsvp-title">Tell us what you have in mind.</p>
+          <p class="form-demo-note" id="form-demo-note"><strong>Form preview only.</strong> Requests are not sent or saved. Try it with sample details.</p>
+          <form id="quote-preview-form" aria-describedby="form-demo-note" onsubmit="return false">
+            <div class="quote-fields">
+              <div class="quote-field">
+                <label for="quote-name">Your name <span aria-hidden="true">*</span></label>
+                <input id="quote-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="quote-field">
+                <label for="quote-email">Email address <span aria-hidden="true">*</span></label>
+                <input id="quote-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="quote-field">
+                <label for="quote-event">Event type <span aria-hidden="true">*</span></label>
+                <select id="quote-event" name="event" required>
+                  <option value="" selected disabled>Select an occasion</option>
+                  <option>Wedding</option>
+                  <option>Corporate event</option>
+                  <option>Private party</option>
+                  <option>Intimate dinner</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div class="quote-field">
+                <label for="quote-date">Tentative date <span class="optional">optional</span></label>
+                <input id="quote-date" name="date" type="date">
+              </div>
+              <div class="quote-field">
+                <label for="quote-guests">Estimated guests <span class="optional">optional</span></label>
+                <input id="quote-guests" name="guests" type="number" min="1" inputmode="numeric" placeholder="About how many?">
+              </div>
+              <div class="quote-field">
+                <label for="quote-location">Event location <span class="optional">optional</span></label>
+                <input id="quote-location" name="location" type="text" placeholder="City or venue">
+              </div>
+              <div class="quote-field quote-field-wide">
+                <label for="quote-notes">What are you envisioning? <span class="optional">optional</span></label>
+                <textarea id="quote-notes" name="notes" rows="3" placeholder="Share any menu ideas, questions about pricing, or details that matter to you."></textarea>
+              </div>
+            </div>
+            <p class="required-note">* Required fields</p>
+            <button class="btn btn-forest btn-wide" type="submit"><span>Preview request</span></button>
+            <p class="form-status" id="quote-form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-mark">Hearth <em>&amp;</em> Table</p>
+      <div class="footer-row">
+        <p>Catering &amp; Events &nbsp;·&nbsp; Weddings · Corporate · Celebrations</p>
+        <p>Concept site. Name, menu and imagery are illustrative. &copy; <span id="year"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
