@@ -36,6 +36,13 @@ body {
   overflow-x: hidden;
 }
 body.menu-open { overflow: hidden; }
+.preview-note {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 80;
+  padding: 8px 20px;
+  background: var(--brass); color: var(--forest);
+  font: 500 0.72rem/1.4 var(--sans);
+  letter-spacing: 0.06em; text-align: center;
+}
 
 /* paper grain over everything */
 body::after {
@@ -581,6 +588,9 @@ a { color: inherit; }
   font: italic 400 clamp(1.8rem, 3.5vw, 2.3rem)/1.2 var(--serif);
   text-align: center; margin-bottom: 32px;
 }
+.preview-card-copy { text-align: center; }
+.preview-card-copy > p:not(.rsvp-title) { color: var(--muted); max-width: 390px; margin: 0 auto 18px; }
+.preview-card-copy .btn { margin-top: 18px; }
 .chips { border: 0; padding: 0; margin: 0 0 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 .chips legend {
   width: 100%; text-align: center; margin-bottom: 16px;
@@ -677,6 +687,7 @@ a { color: inherit; }
 }
 
 @media (max-width: 640px) {
+  .preview-note { font-size: 0.65rem; padding: 6px 12px; }
   body { font-size: 16px; }
   .wrap { padding: 0 20px; }
   .brand-name { display: none; }

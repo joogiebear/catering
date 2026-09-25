@@ -1,10 +1,10 @@
-// Minimal static file server with a quote-request endpoint. No dependencies.
+// Small static server for the preview site. No customer data is collected.
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
 const PORT = process.env.PORT || 3000;
-const PUBLIC_DIR = path.join(__dirname, "public");
+const PUBLIC_DIR = fs.realpathSync(path.join(__dirname, "public"));
 
 const MIME_TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -19,58 +19,57 @@ const MIME_TYPES = {
   ".ico": "image/x-icon",
 };
 
-function sendJson(res, status, body) {
-  res.writeHead(status, { "Content-Type": MIME_TYPES[".json"] });
-  res.end(JSON.stringify(body));
+function send(req, res, status, body, type = "text/plain; charset=utf-8") {
+  const content = Buffer.from(body);
+  res.writeHead(status, { "Content-Type": type, "Content-Length": content.length });
+  res.end(req.method === "HEAD" ? undefined : content);
 }
 
-function handleQuote(req, res) {
-  let raw = "";
-  req.on("data", (chunk) => {
-    raw += chunk;
-    if (raw.length > 1e5) req.destroy();
-  });
-  req.on("end", () => {
-    let data;
-    try {
-      data = JSON.parse(raw);
-    } catch {
-      return sendJson(res, 400, { ok: false, error: "Invalid request." });
-    }
-    if (!data.name || !data.email) {
-      return sendJson(res, 400, { ok: false, error: "Name and email are required." });
-    }
-    // Demo only: requests are logged. Hook up email or a database here later.
-    console.log("New quote request:", JSON.stringify(data));
-    sendJson(res, 200, { ok: true });
-  });
+function isInsidePublic(filePath) {
+  const relative = path.relative(PUBLIC_DIR, filePath);
+  return relative !== ".." && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative);
 }
 
 function serveStatic(req, res) {
-  const urlPath = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
-  let filePath = path.normalize(path.join(PUBLIC_DIR, urlPath));
-  if (!filePath.startsWith(PUBLIC_DIR)) {
-    res.writeHead(403);
-    return res.end("Forbidden");
+  let urlPath;
+  try {
+    urlPath = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
+  } catch {
+    return send(req, res, 400, "Bad request");
   }
+
+  // On Windows, a backslash is a filesystem separator even though it is not a URL separator.
+  if (urlPath.includes("\\") || urlPath.includes("\0")) {
+    return send(req, res, 400, "Bad request");
+  }
+
+  let filePath = path.resolve(PUBLIC_DIR, `.${urlPath}`);
+  if (!isInsidePublic(filePath)) return send(req, res, 403, "Forbidden");
   if (urlPath.endsWith("/")) filePath = path.join(filePath, "index.html");
 
-  fs.readFile(filePath, (err, content) => {
-    if (err) {
-      res.writeHead(404, { "Content-Type": MIME_TYPES[".html"] });
-      return res.end("<h1>Page not found</h1><p><a href='/'>Back home</a></p>");
-    }
-    const type = MIME_TYPES[path.extname(filePath).toLowerCase()] || "application/octet-stream";
-    res.writeHead(200, { "Content-Type": type });
-    res.end(content);
+  // Follow filesystem links only if their final target remains in public/.
+  fs.realpath(filePath, (realPathError, realPath) => {
+    if (realPathError) return send(req, res, 404, "Page not found");
+    if (!isInsidePublic(realPath)) return send(req, res, 403, "Forbidden");
+    fs.readFile(realPath, (readError, content) => {
+      if (readError) return send(req, res, 404, "Page not found");
+      const type = MIME_TYPES[path.extname(realPath).toLowerCase()] || "application/octet-stream";
+      res.writeHead(200, { "Content-Type": type, "Content-Length": content.length });
+      res.end(req.method === "HEAD" ? undefined : content);
+    });
   });
 }
 
 const server = http.createServer((req, res) => {
-  if (req.method === "POST" && req.url === "/api/quote") return handleQuote(req, res);
-  if (req.method === "GET" && req.url === "/health") return sendJson(res, 200, { ok: true });
+  if (req.url === "/api/quote" && req.method === "POST") {
+    req.resume();
+    return send(req, res, 503, JSON.stringify({ ok: false, error: "Enquiries are not enabled on this preview." }), MIME_TYPES[".json"]);
+  }
+  if (req.url === "/health" && (req.method === "GET" || req.method === "HEAD")) {
+    return send(req, res, 200, JSON.stringify({ ok: true }), MIME_TYPES[".json"]);
+  }
   if (req.method === "GET" || req.method === "HEAD") return serveStatic(req, res);
-  res.writeHead(405);
+  res.writeHead(405, { Allow: "GET, HEAD" });
   res.end("Method not allowed");
 });
 

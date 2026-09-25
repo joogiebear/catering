@@ -1,23 +1,33 @@
 # Hearth & Table Catering
 
-Demo website for a catering business. It's a plain HTML/CSS/JS site in `public/`, served by a small Node server (`server.js`) with no dependencies.
+Preview website for a catering business. It is plain HTML, CSS, and JavaScript in `public/`, served by Node.js with no package dependencies.
 
 ## Run locally
 
+Install Node.js 18 or newer, then run:
+
 ```bash
 npm start
-# open http://localhost:3000
 ```
 
-## Deploy on Railway
+Open `http://localhost:3000`. The server uses `PORT` when Railway supplies it. `GET /health` returns `{"ok":true}`.
 
-1. New Project → Deploy from GitHub repo → pick this repo and branch.
-2. Railway detects Node and runs `npm start`. The server reads `PORT` automatically.
-3. Settings → Networking → Generate Domain.
+## Deploy a test with Railway CLI
 
-## Editing content
+Run these commands from the repository root. Railway CLI login opens an interactive browser sign-in.
 
-- Text, menu items and contact details: `public/index.html`
-- Colours and fonts: the variables at the top of `public/styles.css` (forest green, brass, ivory; Cormorant Garamond + Jost)
-- Photos: the arched panel in "Our Story" and the hero illustration are placeholders; real food and event photos can drop into `public/images/`
-- Quote requests are posted to `/api/quote` and currently only **logged** (visible in Railway's deploy logs). Wire up email or a database in `server.js` before going live.
+```bash
+railway login
+railway init --name hearth-and-table-preview
+railway add --service web
+railway up --service web
+railway domain --service web
+```
+
+`railway init` creates and links a new project. If using an existing test project, run `railway link` instead and choose its project and environment. Railway builds this Node project and starts it with `npm start`. The generated domain points to the `web` service. Check `https://<generated-domain>/health` and the home page after the deployment is active. For troubleshooting, run `railway deployment list --service web` and `railway logs --service web --lines 100`.
+
+## Preview limitations and editing
+
+- The site is a design preview. Confirm the company name, contact details, menu, pricing language, photos, testimonials, and any business claims with the owner before sharing it as a real business site.
+- Enquiries are not delivered or stored. `POST /api/quote` returns HTTP 503 with a clear preview message. Connect a real delivery service and add appropriate handling before accepting customer details.
+- Edit page content in `public/index.html`, styling in `public/styles.css`, and interactions in `public/script.js`.
