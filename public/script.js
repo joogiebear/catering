@@ -15,7 +15,13 @@ else {
 
 // ---------- Header state ----------
 const header = document.querySelector(".site-header");
-const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
+const themeColor = document.querySelector('meta[name="theme-color"]');
+// Match Safari's status-bar area to the current header color.
+const onScroll = () => {
+  const scrolled = window.scrollY > 40;
+  header.classList.toggle("scrolled", scrolled);
+  themeColor.content = scrolled && !document.body.classList.contains("menu-open") ? "#faf7f1" : "#15231c";
+};
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
@@ -25,6 +31,7 @@ const overlay = document.getElementById("overlay-menu");
 
 function setMenu(open) {
   document.body.classList.toggle("menu-open", open);
+  onScroll();
   toggle.setAttribute("aria-expanded", String(open));
   toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   overlay.setAttribute("aria-hidden", String(!open));
