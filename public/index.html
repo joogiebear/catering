@@ -218,17 +218,56 @@
         <div class="reserve-intro">
           <p class="course light reveal"><span>V</span>The Invitation</p>
           <h2 class="reveal">Let's plan <em>something lovely</em></h2>
-          <p class="reveal">A celebration begins long before the first guest arrives. Imagine the room, the music, the company—and a table that brings it all together.</p>
+          <p class="reveal">A celebration begins long before the first guest arrives. Tell us about the occasion, and we can imagine a menu and experience around it.</p>
+          <p class="reveal">For a real event, this is where you could ask about availability, menu options, and a tailored price.</p>
         </div>
 
         <div class="rsvp reveal">
           <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-          <div class="preview-card-copy">
-            <p class="rsvp-title">Make room for magic.</p>
-            <p>Weddings, work gatherings, intimate dinners, and the just-because celebrations in between.</p>
-            <a href="#menu" class="btn btn-forest btn-wide"><span>Explore the menu</span></a>
-            <p class="concept-disclaimer">Enquiries are unavailable on this concept site.</p>
-          </div>
+          <p class="rsvp-title">Tell us what you have in mind.</p>
+          <p class="form-demo-note" id="form-demo-note"><strong>Form preview only.</strong> Requests are not sent or saved. Try it with sample details.</p>
+          <form id="quote-preview-form" aria-describedby="form-demo-note" onsubmit="return false">
+            <div class="quote-fields">
+              <div class="quote-field">
+                <label for="quote-name">Your name <span aria-hidden="true">*</span></label>
+                <input id="quote-name" name="name" type="text" autocomplete="name" required>
+              </div>
+              <div class="quote-field">
+                <label for="quote-email">Email address <span aria-hidden="true">*</span></label>
+                <input id="quote-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="quote-field">
+                <label for="quote-event">Event type <span aria-hidden="true">*</span></label>
+                <select id="quote-event" name="event" required>
+                  <option value="" selected disabled>Select an occasion</option>
+                  <option>Wedding</option>
+                  <option>Corporate event</option>
+                  <option>Private party</option>
+                  <option>Intimate dinner</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div class="quote-field">
+                <label for="quote-date">Tentative date <span class="optional">optional</span></label>
+                <input id="quote-date" name="date" type="date">
+              </div>
+              <div class="quote-field">
+                <label for="quote-guests">Estimated guests <span class="optional">optional</span></label>
+                <input id="quote-guests" name="guests" type="number" min="1" inputmode="numeric" placeholder="About how many?">
+              </div>
+              <div class="quote-field">
+                <label for="quote-location">Event location <span class="optional">optional</span></label>
+                <input id="quote-location" name="location" type="text" placeholder="City or venue">
+              </div>
+              <div class="quote-field quote-field-wide">
+                <label for="quote-notes">What are you envisioning? <span class="optional">optional</span></label>
+                <textarea id="quote-notes" name="notes" rows="3" placeholder="Share any menu ideas, questions about pricing, or details that matter to you."></textarea>
+              </div>
+            </div>
+            <p class="required-note">* Required fields</p>
+            <button class="btn btn-forest btn-wide" type="submit"><span>Preview request</span></button>
+            <p class="form-status" id="quote-form-status" role="status" aria-live="polite"></p>
+          </form>
         </div>
       </div>
     </section>

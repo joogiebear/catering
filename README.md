@@ -29,5 +29,5 @@ railway domain --service web
 ## Preview limitations and editing
 
 - The site is a design preview. Confirm the company name, contact details, menu, pricing language, photos, testimonials, and any business claims with the owner before sharing it as a real business site.
-- Enquiries are not delivered or stored. `POST /api/quote` returns HTTP 503 with a clear preview message. Connect a real delivery service and add appropriate handling before accepting customer details.
+- The quote form is an interactive preview. It validates locally but does not send or store customer details; after submission, it shows a clear no-send message. `POST /api/quote` returns HTTP 503. Connect a real delivery service before accepting enquiries.
 - Edit page content in `public/index.html`, styling in `public/styles.css`, and interactions in `public/script.js`.

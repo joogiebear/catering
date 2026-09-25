@@ -134,4 +134,15 @@ window.addEventListener("resize", () => moveIndicator(document.querySelector(".m
 document.fonts && document.fonts.ready.then(() => moveIndicator(document.querySelector(".menu-tab.active")));
 moveIndicator(tabs[0]);
 
+// ---------- Quote request preview (no network or storage) ----------
+const quoteForm = document.getElementById("quote-preview-form");
+quoteForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (!quoteForm.reportValidity()) return;
+
+  quoteForm.reset();
+  document.getElementById("quote-form-status").textContent =
+    "Preview complete. Your request was not sent or saved. A live site would send these details to the catering team for a tailored quote.";
+});
+
 document.getElementById("year").textContent = new Date().getFullYear();
