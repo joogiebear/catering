@@ -18,5 +18,6 @@ npm start
 ## Editing content
 
 - Text, menu items and contact details: `public/index.html`
-- Colours and fonts: the variables at the top of `public/styles.css`
+- Colours and fonts: the variables at the top of `public/styles.css` (forest green, brass, ivory; Cormorant Garamond + Jost)
+- Photos: the arched panel in "Our Story" and the hero illustration are placeholders; real food and event photos can drop into `public/images/`
 - Quote requests are posted to `/api/quote` and currently only **logged** (visible in Railway's deploy logs). Wire up email or a database in `server.js` before going live.
