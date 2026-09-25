@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hearth &amp; Table Catering</title>
+  <meta name="description" content="Fresh, made-from-scratch catering for weddings, corporate events and private parties.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">Hearth <span>&amp;</span> Table</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#quote" class="btn btn-small">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Catering &middot; Events &middot; Private Chef</p>
+        <h1>Food that brings<br>people to the table.</h1>
+        <p class="lead">Seasonal, made-from-scratch menus for weddings, office lunches and every celebration in between. You host, we handle the rest.</p>
+        <div class="hero-actions">
+          <a href="#quote" class="btn">Request a Quote</a>
+          <a href="#menu" class="btn btn-ghost">See the Menu</a>
+        </div>
+        <ul class="hero-stats">
+          <li><strong>500+</strong><span>events served</span></li>
+          <li><strong>10–500</strong><span>guests</span></li>
+          <li><strong>100%</strong><span>made in-house</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <p class="eyebrow">What we do</p>
+        <h2>Catering for every occasion</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+            </div>
+            <h3>Weddings</h3>
+            <p>Plated dinners, family-style feasts or grazing tables, planned around your day from tasting to last dance.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            </div>
+            <h3>Corporate</h3>
+            <p>Boxed lunches, breakfast spreads and conference catering, delivered on time and labelled for dietary needs.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 21h14M12 3v4M8 11h8l-1 10H9L8 11zM9 7h6l1 4H8l1-4z"/></svg>
+            </div>
+            <h3>Private Parties</h3>
+            <p>Birthdays, graduations, showers and holiday gatherings, with drop-off trays or full-service staff.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+            </div>
+            <h3>Meal Prep</h3>
+            <p>Weekly chef-prepared meals for busy families, portioned and ready to heat.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="section section-alt">
+      <div class="container">
+        <p class="eyebrow">Sample menu</p>
+        <h2>A taste of what we make</h2>
+        <p class="section-lead">Every menu is customised. These are a few guest favourites to get you started.</p>
+
+        <div class="tabs" role="tablist">
+          <button class="tab active" role="tab" aria-selected="true" data-tab="starters">Starters</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="mains">Mains</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="sides">Sides</button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="desserts">Desserts</button>
+        </div>
+
+        <div class="menu-panel active" id="starters" role="tabpanel">
+          <div class="menu-item"><div><h4>Whipped Feta Crostini</h4><p>Honey, cracked pepper, grilled sourdough</p></div><span class="tag">V</span></div>
+          <div class="menu-item"><div><h4>Caprese Skewers</h4><p>Cherry tomato, mozzarella, basil, balsamic glaze</p></div><span class="tag">V · GF</span></div>
+          <div class="menu-item"><div><h4>Crispy Pork Belly Bites</h4><p>Sticky chilli glaze, pickled cucumber</p></div><span class="tag">GF</span></div>
+          <div class="menu-item"><div><h4>Seasonal Soup Shooters</h4><p>Rotating selection, served warm</p></div><span class="tag">V</span></div>
+        </div>
+        <div class="menu-panel" id="mains" role="tabpanel">
+          <div class="menu-item"><div><h4>Herb-Roasted Chicken</h4><p>Lemon, garlic, thyme pan jus</p></div><span class="tag">GF</span></div>
+          <div class="menu-item"><div><h4>Slow-Braised Short Rib</h4><p>Red wine reduction, crispy shallots</p></div><span class="tag">GF</span></div>
+          <div class="menu-item"><div><h4>Blackened Salmon</h4><p>Mango salsa, lime crema</p></div><span class="tag">GF</span></div>
+          <div class="menu-item"><div><h4>Wild Mushroom Risotto</h4><p>Parmesan, truffle oil, fresh herbs</p></div><span class="tag">V · GF</span></div>
+        </div>
+        <div class="menu-panel" id="sides" role="tabpanel">
+          <div class="menu-item"><div><h4>Garlic Parmesan Potatoes</h4><p>Crispy roasted baby potatoes</p></div><span class="tag">V · GF</span></div>
+          <div class="menu-item"><div><h4>Charred Seasonal Vegetables</h4><p>Olive oil, sea salt, herbs</p></div><span class="tag">VG · GF</span></div>
+          <div class="menu-item"><div><h4>Mac &amp; Cheese</h4><p>Three cheeses, toasted breadcrumb crust</p></div><span class="tag">V</span></div>
+          <div class="menu-item"><div><h4>Harvest Salad</h4><p>Mixed greens, apple, candied pecans, cider vinaigrette</p></div><span class="tag">VG · GF</span></div>
+        </div>
+        <div class="menu-panel" id="desserts" role="tabpanel">
+          <div class="menu-item"><div><h4>Mini Cheesecakes</h4><p>Seasonal fruit compote</p></div><span class="tag">V</span></div>
+          <div class="menu-item"><div><h4>Chocolate Mousse Cups</h4><p>Whipped cream, sea salt</p></div><span class="tag">V · GF</span></div>
+          <div class="menu-item"><div><h4>Lemon Bars</h4><p>Buttery shortbread, powdered sugar</p></div><span class="tag">V</span></div>
+          <div class="menu-item"><div><h4>Fresh Fruit Platter</h4><p>Whatever's best this week</p></div><span class="tag">VG · GF</span></div>
+        </div>
+        <p class="menu-key">V vegetarian &middot; VG vegan &middot; GF gluten-free &middot; Allergies? Just tell us.</p>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about">
+        <div class="about-visual" aria-hidden="true">
+          <div class="plate"></div>
+        </div>
+        <div>
+          <p class="eyebrow">Our story</p>
+          <h2>Cooked with care, served with heart</h2>
+          <p>Hearth &amp; Table started in a home kitchen, cooking for friends' birthdays and backyard weddings. Word spread, and today we cater events of every size without losing that home-cooked feeling.</p>
+          <p>We shop local, cook everything from scratch and build each menu around the people you're feeding. From the first tasting to the final clean-up, you'll deal with the same small team that cooks your food.</p>
+          <ul class="checklist">
+            <li>Locally sourced, seasonal ingredients</li>
+            <li>Vegetarian, vegan and allergy-friendly options</li>
+            <li>Drop-off, buffet or fully staffed service</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section section-alt">
+      <div class="container">
+        <p class="eyebrow">Kind words</p>
+        <h2>What our clients say</h2>
+        <div class="reviews">
+          <blockquote class="review">
+            <p>"Our guests are still talking about the short rib. Everything ran smoothly and we didn't have to think about food once."</p>
+            <cite>Sarah &amp; James · Wedding, 120 guests</cite>
+          </blockquote>
+          <blockquote class="review">
+            <p>"We use Hearth &amp; Table for every team lunch now. Always on time, always delicious, and they never mix up the dietary orders."</p>
+            <cite>Office Manager · Corporate client</cite>
+          </blockquote>
+          <blockquote class="review">
+            <p>"They made my mum's 70th feel special. Friendly, professional and the dessert table was stunning."</p>
+            <cite>Priya · Birthday party</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="quote" class="section quote-section">
+      <div class="container quote">
+        <div class="quote-intro">
+          <p class="eyebrow">Let's plan your event</p>
+          <h2>Request a quote</h2>
+          <p>Tell us a little about your event and we'll get back to you within 24 hours with menu ideas and pricing.</p>
+          <ul class="contact-list">
+            <li><strong>Phone</strong><a href="tel:+15555550123">(555) 555-0123</a></li>
+            <li><strong>Email</strong><a href="mailto:hello@hearthandtable.example">hello@hearthandtable.example</a></li>
+            <li><strong>Area</strong><span>Serving the greater metro area</span></li>
+          </ul>
+        </div>
+        <form class="quote-form" id="quote-form" novalidate>
+          <div class="field-row">
+            <label>Name<input type="text" name="name" required autocomplete="name"></label>
+            <label>Email<input type="email" name="email" required autocomplete="email"></label>
+          </div>
+          <div class="field-row">
+            <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
+            <label>Event date<input type="date" name="date"></label>
+          </div>
+          <div class="field-row">
+            <label>Event type
+              <select name="eventType">
+                <option>Wedding</option>
+                <option>Corporate</option>
+                <option>Private party</option>
+                <option>Meal prep</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>Guest count<input type="number" name="guests" min="1" placeholder="e.g. 50"></label>
+          </div>
+          <label>Tell us about your event<textarea name="message" rows="4" placeholder="Venue, style of service, dietary needs, anything else..."></textarea></label>
+          <button type="submit" class="btn btn-full">Send Request</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#top" class="brand">Hearth <span>&amp;</span> Table</a>
+      <p>&copy; <span id="year"></span> Hearth &amp; Table Catering. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
